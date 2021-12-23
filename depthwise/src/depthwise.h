@@ -3,15 +3,15 @@
 
 typedef float DTYPE;                                                                                             
 
-const int W = 30;
-const int H = 6;
-const int C = 32;
+const int W = 4;
+const int H = 4;
+const int C = 16;
 const int K = 3;
 #define PAD 1
 #define STRIDE 1
 
 #define Tw 16
-#define Tc 4
+#define Tc 16
 void depthwise_conv(
         DTYPE* in0,
           //hls::vector<DTYPE, 16>* in1,
