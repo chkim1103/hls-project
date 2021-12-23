@@ -19,7 +19,7 @@
 #include <vector>
 #include "depthwise.h"
 #include <math.h>
-const int SIZE = 512;
+
 void print_tensor(DTYPE* output, int w, int h, int c)
 {
 //    printf("%s\n", name);
