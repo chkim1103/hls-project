@@ -21,7 +21,11 @@ Conv / s1 1 × 1 × 1024 × 1024 7 × 7 × 1024
 
 
 Baseline
-gcc pointwise_openblas.c -o pointwise_openblas -I /usr/include/openblas -lopenblas -g 
+
+gcc pointwise_openblas.c -o pointwise_openblas -I /usr/include/openblas -lopenblas -g
+
 ./pointwise_openblas
-gcc depthwise_openblas.c -o depthwise_openblas -I /usr/include/openblas -lopenblas -g 
+
+gcc depthwise_openblas.c -o depthwise_openblas -I /usr/include/openblas -lopenblas -g
+
 ./depthwise_openblas
