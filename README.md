@@ -15,3 +15,17 @@ Conv / s1 1 × 1 × 32 × 64 112 × 112 × 32
 Conv / s1 1 × 1 × 128 × 256 28 × 28 × 128
 Conv / s1 1 × 1 × 1024 × 1024 7 × 7 × 1024
 에 맞춰서 make run 하면 됩니다. 
+
+
+
+
+
+Baseline
+
+gcc pointwise_openblas.c -o pointwise_openblas -I /usr/include/openblas -lopenblas -g
+
+./pointwise_openblas
+
+gcc depthwise_openblas.c -o depthwise_openblas -I /usr/include/openblas -lopenblas -g
+
+./depthwise_openblas
