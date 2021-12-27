@@ -119,24 +119,25 @@ void depthwise_conv(hls::stream<hls::vector<DTYPE, Tw> >& in0_stream,
  int WB   = ((W-K+2*pad)+1-1)/(Tw-2);
  int H_2PAD = H+ 2*pad;
  
-    
+     
    
   for(int ct = 0; ct < C; ct += Tc)
 	{  
-     for(int i = 0; i < Tc; i++)
+    for(int i = 0; i < Tc; i++)
     {
         //#pragma HLS UNROLL		
-		#pragma HLS pipeline II = 1
-         kernel_temp = kernel[i];
+		    #pragma HLS pipeline II = 1
+         kernel_temp = kernel[i + ct];
         for(int j = 0; j < 3; j++)
         {
             for(int k = 0; k < K; k++)
             {
 			//#pragma HLS LOOP_TRIPCOUNT min = 3 max = 3
-                kernel_buf[i][j][k] = kernel_temp[(ct*Tc+i)*9+j*K + k];//kernel[i*K*K + K*j + k];
+                kernel_buf[i][j][k] = kernel_temp[j*K + k];//kernel[i*K*K + K*j + k];
             }
         }
-    } 
+    }
+     
 		for(int wb = 0; wb < WB_1 ; wb++)
 		{	
 			if(wb == WB)
